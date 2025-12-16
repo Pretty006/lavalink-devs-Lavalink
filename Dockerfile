@@ -2,7 +2,9 @@ FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-COPY Lavalink.jar Lavalink.jar
+RUN apt-get update && apt-get install -y wget \
+ && wget https://github.com/lavalink-devs/Lavalink/releases/latest/download/Lavalink.jar
+
 COPY application.yml application.yml
 
 EXPOSE 2333
